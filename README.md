@@ -9,3 +9,7 @@
 - I am interested in learning about how to apply statistics in a technologically creative way
 
 A meme that captures how I currently feel about my university studies is ![](https://c.tenor.com/8druEACXtX8AAAAd/tenor.gif)
+
+How I feel now:
+![](https://media.tenor.com/HnJ-a1i_Bp8AAAAM/patrick-bateman-sigma.gif)
+

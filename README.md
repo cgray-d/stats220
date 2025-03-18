@@ -9,7 +9,7 @@
 - I am interested in learning about how to apply statistics in a technologically creative way
 
 1. My favourite website is [Youtube](https://www.youtube.com/)
-2. My second favourite website is
+2. My second favourite website is [Reddit](https://www.reddit.com/)
 
 A meme that captures how I currently feel about my university studies is ![](https://c.tenor.com/8druEACXtX8AAAAd/tenor.gif)
 

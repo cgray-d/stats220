@@ -2,7 +2,7 @@
 
 ## This is my repo for STATS 220.
 
-** A little about me: ** 
+**A little about me:** 
 
 - I am undertaking a degree in Commerce and Science
 - I am taking STATS 220 because I want to improve my knowledge of programming and its application towards statistics

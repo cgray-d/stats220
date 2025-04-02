@@ -63,6 +63,7 @@ ggplot(data = latest_data) +
   labs(title = expression(bold("Instances of Spending by Date")))
 
 ```
+
 The mean amount of spending per day is `r round(sum(latest_data$spending_amount/7), 2)` dollars.
 
 The total sum of spending in the week is `r round(sum(latest_data$spending_amount), 2)` dollars.

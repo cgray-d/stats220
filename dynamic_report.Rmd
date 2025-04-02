@@ -8,19 +8,6 @@ knitr::opts_chunk$set(echo=FALSE, message=FALSE, warning=FALSE, error=FALSE)
 
 ```
 
-```{r data_setup, include=FALSE}
-library(tidyverse)
-logged_data <- read_csv("https://docs.google.com/spreadsheets/d/e/2PACX-1vT-XuDDKN_RMNNYir_sx35rbufm1-8IiEYe7GsvPAjkQUIWD2Ku-gCCYEHHZ67ZGJh0ly7-vPG4FmSS/pub?output=csv")
-latest_data <- logged_data %>%
-  rename(date = 1,
-         spending_amount = 2,
-         category = 3)
-table_date <- (table(latest_data$date))
-
-table_category <- (table(latest_data$category))
-
-```
-
 ```{css echo=FALSE}
 <style>
 body {
@@ -38,6 +25,19 @@ h2 {
 # Analysis of Daily Spending Patterns
 
 These graphs aim to analyse spending patterns and behaviour over the course of a week.
+
+```{r data_setup, include=FALSE}
+library(tidyverse)
+logged_data <- read_csv("https://docs.google.com/spreadsheets/d/e/2PACX-1vT-XuDDKN_RMNNYir_sx35rbufm1-8IiEYe7GsvPAjkQUIWD2Ku-gCCYEHHZ67ZGJh0ly7-vPG4FmSS/pub?output=csv")
+latest_data <- logged_data %>%
+  rename(date = 1,
+         spending_amount = 2,
+         category = 3)
+table_date <- (table(latest_data$date))
+
+table_category <- (table(latest_data$category))
+
+```
 
 ```{r fig.width = 12, fig.height = 4}
 ggplot(data = latest_data, aes(x = date, y = spending_amount)) +

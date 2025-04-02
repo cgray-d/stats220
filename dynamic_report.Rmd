@@ -8,19 +8,6 @@ knitr::opts_chunk$set(echo=FALSE, message=FALSE, warning=FALSE, error=FALSE)
 
 ```
 
-```{css}
-body {
-  font-family: Arial, sans-serif;
-  margin: 20px;
-  font-size: 20px
-}
-h2 {
-  font-family: 'Arial', serif;
-  font-weight: bold;
-  font-size: 25px
-}
-```
-
 # Analysis of Daily Spending Patterns
 
 These graphs aim to analyse spending patterns and behaviour over the course of a week.

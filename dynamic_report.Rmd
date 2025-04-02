@@ -1,0 +1,75 @@
+---
+title: My dynamic report
+output: html_fragment
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo=FALSE, message=FALSE, warning=FALSE, error=FALSE)
+#data
+library(tidyverse)
+logged_data <- read_csv("https://docs.google.com/spreadsheets/d/e/2PACX-1vT-XuDDKN_RMNNYir_sx35rbufm1-8IiEYe7GsvPAjkQUIWD2Ku-gCCYEHHZ67ZGJh0ly7-vPG4FmSS/pub?output=csv")
+latest_data <- logged_data %>%
+  rename(date = 1,
+         spending_amount = 2,
+         category = 3)
+table_date <- (table(latest_data$date))
+
+table_category <- (table(latest_data$category))
+
+```
+
+```{css echo=FALSE}
+<style>
+body {
+  font-family: Arial, sans-serif;
+  margin: 20px;
+  background-color: #3eb2cf;
+  font-size: 20px
+}
+h2 {
+  font-family: 'Arial', serif;
+  font-weight: bold;
+  font-size: 25px
+}
+</style>
+```
+# Analysis of Daily Spending Patterns
+
+These graphs aim to analyse spending patterns and behaviour over the course of a week.
+
+```{r fig.width = 12, fig.height = 4}
+ggplot(data = latest_data, aes(x = date, y = spending_amount)) +
+  geom_bar(stat = "identity", fill = "#109585") +
+  scale_x_discrete(limits = c("Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday")) +
+  labs(title = expression(bold("Spending Amount over a Week")),
+       x = expression(bold("Day of Week")),
+       y = expression(bold("Spending Amount")))
+
+ggplot(data = latest_data, aes(x = category, y = spending_amount)) +
+  geom_bar(stat = "identity", fill = "#8bcf3e") +
+  labs(title = expression(bold("Spending Amount by Category")),
+     x = expression(bold("Category of Spending")),
+     y = expression(bold("Spending Amount")))
+```
+
+The mean amount of spending per day is `r round(sum(latest_data$spending_amount/7), 2)` dollars.
+
+The total sum of spending in the week is `r round(sum(latest_data$spending_amount), 2)` dollars.
+
+```{r fig.width =12, fig.height =4}
+ggplot(data = latest_data) +
+  geom_bar(aes(x = date,
+               fill = category)) +
+  labs(title = expression(bold("Instances of Spending by Category")))
+             
+
+ggplot(data = latest_data) +
+  geom_bar(aes(x = category,
+               fill = date)) +
+  labs(title = expression(bold("Instances of Spending by Date")))
+```
+
+The most common category for spending is `r names(table_category)[table_category == max(table_category)]`, 
+and the day with the most transactions is `r names(table_date)[table_date == max(table_date)]`.
+
+
